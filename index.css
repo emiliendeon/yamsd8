@@ -1,0 +1,46 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 32px;
+	background-color: #074f47;
+	font-family: Georgia, Cambria, serif;
+}
+
+#scoreboard {
+	width: 240px;
+	border-spacing: 4px;
+}
+
+#scoreboard tr {
+	height: 32px;
+}
+
+#scoreboard tr > * {
+	padding: 0 16px;
+	background-color: #0000004f;
+	border-radius: 16px;
+	color: #ffffff;
+}
+
+#scoreboard tr.total > * {
+	font-weight: bold;
+}
+
+#scoreboard th {
+	text-align: right;
+	font-weight: normal;
+}
+
+#scoreboard .value {
+	width: 64px;
+	text-align: center;
+}
+
+tr#grand-total > * {
+	color: #ffe787;
+}
