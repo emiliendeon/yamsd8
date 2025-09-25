@@ -6,9 +6,52 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	gap: 32px;
+	margin: 0;
 	padding: 32px;
 	background-color: #074f47;
 	font-family: Georgia, Cambria, serif;
+}
+
+p {
+	margin: 0;
+}
+
+button {
+	padding: 0;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+input[type="button"],
+input[type="submit"] {
+	height: 40px;
+	padding: 0 16px;
+	background-color: #0000004f;
+	border: none;
+	border-radius: 20px;
+	font: inherit;
+	font-weight: bold;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+button:hover {
+	filter: invert(1);
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover {
+	background-color: #0000009f;
+}
+
+button:disabled,
+input[type="button"]:disabled,
+input[type="submit"]:disabled {
+	opacity: 0.8;
+	cursor: inherit;
+	pointer-events: none;
 }
 
 #scoreboard {
@@ -43,4 +86,48 @@ body {
 
 tr#grand-total > * {
 	color: #ffe787;
+}
+
+#track {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 24px;
+}
+
+#dice {
+	display: flex;
+}
+
+#dice > * {
+	width: 80px;
+	height: 80px;
+}
+
+#dice > .locked {
+	filter: invert(0.8);
+}
+
+#dice img {
+	width: 100%;
+	height: 100%;
+}
+
+#rolls-count {
+	color: #ffffff;
+}
+
+#rolls-count span {
+	font-weight: bold;
+}
+
+@media screen and (width < 480px) {
+	body {
+		padding: 32px 16px;
+	}
+
+	#dice > * {
+		width: 60px;
+		height: 60px;
+	}
 }

@@ -10,8 +10,8 @@
 		<title>YamsD8</title>
 	</head>
 	<body>
-		<table id="scoreboard">
-			<tbody id="upper">
+		<table id="scoreboard" aria-label="Grille de jeu">
+			<tbody id="upper" aria-label="Partie supérieure">
 				<tr class="total sub-total">
 					<th scope="row">Sous-total</th>
 					<td class="value"></td>
@@ -25,7 +25,7 @@
 					<td class="value"></td>
 				</tr>
 			</tbody>
-			<tbody id="lower">
+			<tbody id="lower" aria-label="Partie inférieure">
 				<tr class="total section-total">
 					<th scope="row">Total</th>
 					<td class="value"></td>
@@ -38,5 +38,30 @@
 				</tr>
 			</tfoot>
 		</table>
+		<form id="track">
+			<div id="dice" aria-label="Dés">
+				<button type="button" disabled aria-label="Verrouiller ce dé">
+					<img src="assets/images/d8.png" alt="-" />
+				</button>
+				<button type="button" disabled aria-label="Verrouiller ce dé">
+					<img src="assets/images/d8.png" alt="-" />
+				</button>
+				<button type="button" disabled aria-label="Verrouiller ce dé">
+					<img src="assets/images/d8.png" alt="-" />
+				</button>
+				<button type="button" disabled aria-label="Verrouiller ce dé">
+					<img src="assets/images/d8.png" alt="-" />
+				</button>
+				<button type="button" disabled aria-label="Verrouiller ce dé">
+					<img src="assets/images/d8.png" alt="-" />
+				</button>
+			</div>
+			<p id="rolls-count">
+				Lancer <span class="current">-</span>/<span class="total">4</span>
+			</p>
+			<div class="actions">
+				<input type="submit" value="Lancer" />
+			</div>
+		</form>
 	</body>
 </html>
