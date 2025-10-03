@@ -73,6 +73,14 @@ const initDiceEvents = (onDieClick) => {
 	}
 };
 
+const toggleTrackSubmit = (enabled) => {
+	if (enabled) {
+		formTrackSubmit.removeAttribute("disabled");
+	} else {
+		formTrackSubmit.setAttribute("disabled", "");
+	}
+};
+
 const renderCurrentRollsCount = (currentRollIndex, maxRollsCount) => {
 	pRollsCount.querySelector(".current").textContent = currentRollIndex ?? "-";
 
@@ -81,7 +89,7 @@ const renderCurrentRollsCount = (currentRollIndex, maxRollsCount) => {
 			divDice.children[i].setAttribute("disabled", "");
 		}
 
-		formTrackSubmit.setAttribute("disabled", "");
+		toggleTrackSubmit(false);
 	}
 };
 

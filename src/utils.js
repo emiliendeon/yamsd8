@@ -1,4 +1,12 @@
-const countValuesOccurrences = (array) => {
+const countValues = (array, predicate) => {
+	if (!predicate) {
+		return array.length;
+	}
+
+	return array.filter((x) => predicate(x)).length;
+};
+
+const groupValues = (array) => {
 	return array.reduce(
 		(a, x) => ({
 			...a,

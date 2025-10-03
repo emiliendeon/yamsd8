@@ -25,12 +25,13 @@ const onDieClick = (index) => {
 		diceState[index].locked = !diceState[index].locked;
 
 		renderDie(index, diceState[index]);
+		toggleTrackSubmit(diceState.some((die) => !die.locked));
 	}
 };
 
 const validateCombinations = () => {
 	const diceValues = diceState.map((die) => die.value);
-	const valuesOccurrencesCounts = countValuesOccurrences(diceValues);
+	const valuesOccurrencesCounts = groupValues(diceValues);
 	const sortedValuesOccurrencesCounts = toSortedEntries(valuesOccurrencesCounts, (a, b) => a - b);
 
 	const combinationsScores = {};
