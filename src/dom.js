@@ -1,3 +1,5 @@
+const tableScoreboard = document.getElementById("scoreboard");
+
 const tbodyUpper = document.getElementById("upper");
 const trUpperSubTotal = tbodyUpper.querySelector(".sub-total");
 
@@ -32,6 +34,21 @@ const renderScoreboard = () => {
 
 	LowerCombinations.forEach((combination) => {
 		tbodyLower.insertBefore(combinationToTr(combination), trLowerTotal);
+	});
+};
+
+const renderScoreboardTrial = (combinationsScores) => {
+	Combinations.forEach((combination) => {
+		const tdValue = tableScoreboard.querySelector(`#${combination.id} .value`);
+
+		tdValue.textContent = combinationsScores[combination.id];
+		tdValue.classList.remove("valid", "invalid");
+
+		if (combinationsScores[combination.id] > 0) {
+			tdValue.classList.add("valid");
+		} else {
+			tdValue.classList.add("invalid");
+		}
 	});
 };
 

@@ -28,6 +28,29 @@ const onDieClick = (index) => {
 	}
 };
 
+const validateCombinations = () => {
+	const diceValues = diceState.map((die) => die.value);
+	const valuesOccurrencesCounts = countValuesOccurrences(diceValues);
+	const sortedValuesOccurrencesCounts = toSortedEntries(valuesOccurrencesCounts, (a, b) => a - b);
+
+	const combinationsScores = {};
+
+	Combinations.forEach((combination) => {
+		const isValid = combination.validate?.(sortedValuesOccurrencesCounts) ?? true;
+
+		let score = 0;
+
+		if (isValid) {
+			score =
+				combination.baseScore ?? combination.computeScore(sortedValuesOccurrencesCounts);
+		}
+
+		combinationsScores[combination.id] = score;
+	});
+
+	renderScoreboardTrial(combinationsScores);
+};
+
 const onTrackSubmit = (e) => {
 	e.preventDefault();
 
@@ -36,6 +59,8 @@ const onTrackSubmit = (e) => {
 
 		renderDice(diceState);
 		renderCurrentRollsCount(gameState.currentRollIndex, MAX_ROLLS_COUNT);
+
+		validateCombinations();
 	}
 };
 

@@ -84,6 +84,20 @@ input[type="submit"]:disabled {
 	text-align: center;
 }
 
+#scoreboard .value.valid,
+#scoreboard .value.invalid {
+	box-shadow: inset 0 0 12px 4px #000000;
+	font-weight: bold;
+}
+
+#scoreboard .value.valid {
+	background-color: #00bf00;
+}
+
+#scoreboard .value.invalid {
+	background-color: #bf0000;
+}
+
 tr#grand-total > * {
 	color: #ffe787;
 }
