@@ -15,27 +15,40 @@
 			<tbody id="upper" aria-label="Partie supérieure">
 				<tr class="total sub-total">
 					<th scope="row">Sous-total</th>
-					<td class="value"></td>
+					<td class="value">0</td>
 				</tr>
-				<tr id="prime">
+				<tr id="bonus">
 					<th scope="row">Prime</th>
-					<td class="value"></td>
+					<td class="value">0</td>
 				</tr>
 				<tr class="total section-total">
 					<th scope="row">Total</th>
-					<td class="value"></td>
+					<td class="value">0</td>
 				</tr>
 			</tbody>
 			<tbody id="lower" aria-label="Partie inférieure">
 				<tr class="total section-total">
 					<th scope="row">Total</th>
-					<td class="value"></td>
+					<td class="value">0</td>
 				</tr>
 			</tbody>
+			<template id="scoreboard-row">
+				<tr>
+					<th scope="row"></th>
+					<td class="value">
+						<button
+							type="button"
+							class="save"
+							disabled
+							aria-label="Enregistrer cette combinaison"
+						></button>
+					</td>
+				</tr>
+			</template>
 			<tfoot>
 				<tr id="grand-total" class="total">
 					<th scope="row">Total général</th>
-					<td class="value"></td>
+					<td class="value">0</td>
 				</tr>
 			</tfoot>
 		</table>

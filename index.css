@@ -17,11 +17,19 @@ p {
 	margin: 0;
 }
 
+button,
+input[type="button"],
+input[type="submit"] {
+	border: none;
+	font: inherit;
+	text-align: center;
+	color: #ffffff;
+	cursor: pointer;
+}
+
 button {
 	padding: 0;
 	background: none;
-	border: none;
-	cursor: pointer;
 }
 
 input[type="button"],
@@ -29,16 +37,12 @@ input[type="submit"] {
 	height: 40px;
 	padding: 0 16px;
 	background-color: #0000004f;
-	border: none;
 	border-radius: 20px;
-	font: inherit;
 	font-weight: bold;
-	color: #ffffff;
-	cursor: pointer;
 }
 
 button:hover {
-	filter: invert(1);
+	filter: opacity(0.6);
 }
 
 input[type="button"]:hover,
@@ -55,16 +59,12 @@ input[type="submit"]:disabled {
 }
 
 #scoreboard {
-	width: 240px;
 	border-spacing: 4px;
 }
 
-#scoreboard tr {
-	height: 32px;
-}
-
 #scoreboard tr > * {
-	padding: 0 16px;
+	height: 32px;
+	padding: 0;
 	background-color: #0000004f;
 	border-radius: 16px;
 	color: #ffffff;
@@ -75,26 +75,38 @@ input[type="submit"]:disabled {
 }
 
 #scoreboard th {
+	padding: 0 16px;
 	text-align: right;
 	font-weight: normal;
 }
 
 #scoreboard .value {
 	width: 64px;
+	overflow: hidden;
 	text-align: center;
 }
 
-#scoreboard .value.valid,
-#scoreboard .value.invalid {
+#scoreboard button.save {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+#scoreboard button.save:disabled {
+	opacity: inherit;
+}
+
+#scoreboard .value.valid button.save:not(:disabled),
+#scoreboard .value.invalid button.save:not(:disabled) {
 	box-shadow: inset 0 0 12px 4px #000000;
 	font-weight: bold;
 }
 
-#scoreboard .value.valid {
+#scoreboard .value.valid button.save:not(:disabled) {
 	background-color: #00bf00;
 }
 
-#scoreboard .value.invalid {
+#scoreboard .value.invalid button.save:not(:disabled) {
 	background-color: #bf0000;
 }
 
@@ -116,6 +128,10 @@ tr#grand-total > * {
 #dice > * {
 	width: 80px;
 	height: 80px;
+}
+
+#dice > *:hover {
+	filter: invert(1);
 }
 
 #dice > .locked {

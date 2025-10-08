@@ -102,3 +102,8 @@ const LowerCombinations = [
 ];
 
 const Combinations = [...UpperCombinations, ...LowerCombinations];
+
+const BONUS_THRESHOLD = 108;
+const BONUS_VALUE = 45;
+
+const MAX_ROLLS_COUNT = 4;
