@@ -46,7 +46,7 @@ const validateSequence = (length) => (sortedValuesOccurrencesCounts) => {
 		if (sortedValuesOccurrencesCounts[i][0] === sortedValuesOccurrencesCounts[i - 1][0] + 1) {
 			currentSequenceLength++;
 		} else {
-			currentSequenceLength = 0;
+			currentSequenceLength = 1;
 		}
 	}
 
