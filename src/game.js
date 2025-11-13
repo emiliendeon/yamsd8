@@ -78,7 +78,7 @@ const registerCombination = (combinationId) => {
 const rollDice = () => {
 	for (let i = 0; i < diceState.length; i++) {
 		if (!diceState[i].locked) {
-			diceState[i].value = Math.floor(Math.random() * 8) + 1;
+			diceState[i].value = randomDieValue();
 		}
 	}
 

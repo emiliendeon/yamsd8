@@ -1,3 +1,9 @@
+const uint8Buffer = new Uint8Array(1);
+
+const randomDieValue = () => {
+	return (self.crypto.getRandomValues(uint8Buffer)[0] & 7) + 1;
+};
+
 const countValues = (array, predicate) => {
 	if (!predicate) {
 		return array.length;
