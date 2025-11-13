@@ -87,9 +87,9 @@ const renderDie = (index, die, isCurrentTrackOver = false) => {
 	buttonDie.toggleAttribute("disabled", die.value === undefined || isCurrentTrackOver);
 	buttonDie.classList.toggle("locked", die.locked);
 	buttonDie.ariaLabel = die.locked ? "Déverrouiller ce dé" : "Verrouiller ce dé";
+	buttonDie.setAttribute("data-value", die.value ?? "-");
 
 	const imgDie = buttonDie.firstElementChild;
-	imgDie.setAttribute("src", `assets/images/d8${die.value ? `_${die.value}` : ""}.png`);
 	imgDie.setAttribute("alt", die.value ?? "-");
 };
 
