@@ -60,7 +60,7 @@ const renderScoreboardTrial = (scoreboardTrial) => {
 		}
 
 		const buttonSave = tdValue.querySelector("button.save");
-		buttonSave.removeAttribute("disabled");
+		buttonSave.disabled = false;
 		buttonSave.textContent = value;
 	});
 };
@@ -71,7 +71,7 @@ const renderScoreboardValues = (scoreboardState) => {
 		tdValue.classList.remove("valid", "invalid");
 
 		const buttonSave = tdValue.querySelector("button.save");
-		buttonSave.setAttribute("disabled", "");
+		buttonSave.disabled = true;
 		buttonSave.textContent = scoreboardState[combination.id] ?? null;
 	});
 
@@ -84,13 +84,13 @@ const renderScoreboardValues = (scoreboardState) => {
 
 const renderDie = (index, die, isCurrentTrackOver = false) => {
 	const buttonDie = divDice.children[index];
-	buttonDie.toggleAttribute("disabled", die.value === undefined || isCurrentTrackOver);
+	buttonDie.disabled = die.value === undefined || isCurrentTrackOver;
 	buttonDie.classList.toggle("locked", die.locked);
 	buttonDie.ariaLabel = die.locked ? "Déverrouiller ce dé" : "Verrouiller ce dé";
 	buttonDie.setAttribute("data-value", die.value ?? "-");
 
 	const imgDie = buttonDie.firstElementChild;
-	imgDie.setAttribute("alt", die.value ?? "-");
+	imgDie.alt = die.value ?? "-";
 };
 
 const renderDice = (diceState, isCurrentTrackOver) => {
@@ -104,11 +104,7 @@ const initDiceEvents = (onDieClick) => {
 };
 
 const toggleTrackSubmit = (enabled) => {
-	if (enabled) {
-		formTrackSubmit.removeAttribute("disabled");
-	} else {
-		formTrackSubmit.setAttribute("disabled", "");
-	}
+	formTrackSubmit.disabled = !enabled;
 };
 
 const renderCurrentRollsCount = (currentRollIndex, isOver) => {
